@@ -29,42 +29,34 @@
 }
 
 - (IBAction)gridOneColorPressed:(id)sender {
-	UIImage * image = [XPR_IdenticonGrid createIdenticonImageForSize:CGSizeMake(self.identiconImageView.frame.size.width, self.identiconImageView.frame.size.height)
+	self.identiconImageView.image = [XPR_IdenticonGrid createIdenticonImageForSize:CGSizeMake(self.identiconImageView.frame.size.width, self.identiconImageView.frame.size.height)
 																type:XPR_IdenticonTypeMirroredGridOneColor
 													 backgroundColor:[UIColor whiteColor]
 															   shape:XPR_ShapeSquare];
 
-	self.identiconImageView.image = image;
-
 }
 
 - (IBAction)gridMultiColorPressed:(id)sender {
-	UIImage * image = [XPR_IdenticonGrid createIdenticonImageForSize:CGSizeMake(self.identiconImageView.frame.size.width, self.identiconImageView.frame.size.height)
+	self.identiconImageView.image = [XPR_IdenticonGrid createIdenticonImageForSize:CGSizeMake(self.identiconImageView.frame.size.width, self.identiconImageView.frame.size.height)
 																type:XPR_IdenticonTypeMirroredGridMultiColor
 													 backgroundColor:[UIColor whiteColor]
 															   shape:XPR_ShapeSquare];
 
-	self.identiconImageView.image = image;
-
 }
 
 - (IBAction)gridMultiColoredRowsPressed:(id)sender {
-	UIImage * image = [XPR_IdenticonGrid createIdenticonImageForSize:CGSizeMake(self.identiconImageView.frame.size.width, self.identiconImageView.frame.size.height)
+	self.identiconImageView.image = [XPR_IdenticonGrid createIdenticonImageForSize:CGSizeMake(self.identiconImageView.frame.size.width, self.identiconImageView.frame.size.height)
 																type:XPR_IdenticonTypeMirroredGridMultiColorRows
 													 backgroundColor:[UIColor whiteColor]
 															   shape:XPR_ShapeSquare];
 
-	self.identiconImageView.image = image;
-
 }
 
 - (IBAction)gridMultiColorColumnsPressed:(id)sender {
-	UIImage * image = [XPR_IdenticonGrid createIdenticonImageForSize:CGSizeMake(self.identiconImageView.frame.size.width, self.identiconImageView.frame.size.height)
+	self.identiconImageView.image = [XPR_IdenticonGrid createIdenticonImageForSize:CGSizeMake(self.identiconImageView.frame.size.width, self.identiconImageView.frame.size.height)
 																type:XPR_IdenticonTypeMirroredGridMultiColorColumns
 													 backgroundColor:[UIColor whiteColor]
 															   shape:XPR_ShapeSquare];
-
-	self.identiconImageView.image = image;
 
 }
 
