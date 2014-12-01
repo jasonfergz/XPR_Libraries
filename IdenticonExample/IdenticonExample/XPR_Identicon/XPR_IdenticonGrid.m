@@ -12,7 +12,7 @@
 static const int kNumRows			= 8;	//For mirrored versions this should be an even number
 static const int kNumColumns		= 8;	//For mirrored versions this should be an even number
 static const int kCutOff			= 38;   //1-100. Higher value = fewer colored blocks
-static const float kCenterWeighted	= 0.25; //0-1. Larger number makes colored blocks in the corners and edges less likely
+static const int kCenterWeighted	= 10;	//0-10. Larger number makes colored blocks in the corners and edges less likely
 
 @implementation XPR_IdenticonGrid
 
@@ -58,17 +58,7 @@ static const float kCenterWeighted	= 0.25; //0-1. Larger number makes colored bl
 	for (int i = 0; i < kNumColumns/2; i++) {
 		NSArray * array = [NSArray xprRandomArrayForCount:kNumRows];
 		for (int j = 0; j < array.count; j++) {
-			int value = [array[j] intValue];
-			if (i < 0.5*kNumColumns/2) {
-				value = value * (1.0 - kCenterWeighted);
-			} else {
-				value = value * (1.0 + kCenterWeighted);
-			}
-			if (j < 0.4*kNumRows || j > 0.6*kNumRows) {
-				value = value * (1.0 - kCenterWeighted);
-			} else {
-				value = value * (1.0 + kCenterWeighted);
-			}
+			int value = [self weightedValue:[array[j] intValue] row:i column:j isMirrored:YES];
 			if (value > kCutOff) {
 				switch (type) {
 					case XPR_IdenticonTypeMirroredGridMultiColor:
@@ -113,17 +103,7 @@ static const float kCenterWeighted	= 0.25; //0-1. Larger number makes colored bl
 	for (int i = 0; i < kNumColumns; i++) {
 		NSArray * array = [NSArray xprRandomArrayForCount:kNumRows];
 		for (int j = 0; j < array.count; j++) {
-			int value = [array[j] intValue];
-			if (i < 0.4*kNumColumns || i > 0.6*kNumColumns) {
-				value = value * (1.0 - kCenterWeighted);
-			} else {
-				value = value * (1.0 + kCenterWeighted);
-			}
-			if (j < 0.4*kNumRows || j > 0.6*kNumRows) {
-				value = value * (1.0 - kCenterWeighted);
-			} else {
-				value = value * (1.0 + kCenterWeighted);
-			}
+			int value = [self weightedValue:[array[j] intValue] row:i column:j isMirrored:NO];
 			if (value > kCutOff) {
 				switch (type) {
 					case XPR_IdenticonTypeGridMultiColor:
@@ -152,6 +132,27 @@ static const float kCenterWeighted	= 0.25; //0-1. Larger number makes colored bl
 				}
 			}
 		}
+	}
+}
+
++ (int) weightedValue:(int)startValue row:(int)row column:(int)column isMirrored:(BOOL)isMirrored {
+	if ([self weightedRow:row] && [self weightedColumn:column isMirrored:isMirrored]) {
+		startValue = startValue + kCenterWeighted;
+	} else {
+		startValue = startValue - kCenterWeighted;
+	}
+	return startValue;
+}
+
++ (BOOL) weightedRow:(int)row {
+	return (row > 0.3*kNumRows && row < 0.7*kNumRows);
+}
+
++ (BOOL) weightedColumn:(int)column isMirrored:(BOOL)isMirrored {
+	if (isMirrored) {
+		return (column > 0.5*kNumColumns/2);
+	} else {
+		return (column > 0.3*kNumColumns && column < 0.7*kNumColumns);
 	}
 }
 
