@@ -466,6 +466,7 @@
 				961877AF1A2BFD82002E7C12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		961877B01A2BFD82002E7C12 /* Build configuration list for PBXNativeTarget "IdenticonExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +475,7 @@
 				961877B21A2BFD82002E7C12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
