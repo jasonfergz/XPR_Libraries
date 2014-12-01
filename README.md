@@ -1,7 +1,7 @@
 XPR_Libraries
 =============
 
-This library provides an interpretation of the GitHub Identicon for use on iOS.
+This library provides an interpretation of the GitHub Identicon for use on iOS. The result is random and is not based on a seed.
 
 Using the Library:
 
