@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7B64DCB6-B795-4E34-BBBD-EF317E77AB88</string>
+	<key>IDESourceControlProjectName</key>
+	<string>IdenticonExample</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>7799A63494D1F7DC86C09DE96404BE2E68602508</key>
+		<string>github.com:xpro66/XPR_Libraries.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>IdenticonExample/IdenticonExample.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>7799A63494D1F7DC86C09DE96404BE2E68602508</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:xpro66/XPR_Libraries.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7799A63494D1F7DC86C09DE96404BE2E68602508</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7799A63494D1F7DC86C09DE96404BE2E68602508</string>
+			<key>IDESourceControlWCCName</key>
+			<string>XPR_Libraries</string>
+		</dict>
+	</array>
+</dict>
+</plist>
