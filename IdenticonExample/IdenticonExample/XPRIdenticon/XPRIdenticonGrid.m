@@ -1,22 +1,22 @@
 //
-//  XPR_IdenticonGrid.m
+//  XPRIdenticonGrid.m
 //
 //  Created by Jason Ferguson
 //  Copyright (c) 2014 Jason Ferguson. All rights reserved.
 //  https://github.com/xpro66
 
-#import "XPR_IdenticonGrid.h"
-#import "NSArray+XPR_Additions.h"
-#import "UIColor+XPR_Additions.h"
+#import "XPRIdenticonGrid.h"
+#import "NSArray+XPRAdditions.h"
+#import "UIColor+XPRAdditions.h"
 
 static const int kNumRows			= 8;	//For mirrored versions this should be an even number
 static const int kNumColumns		= 8;	//For mirrored versions this should be an even number
-static const int kCutOff			= 38;   //1-100. Higher value = fewer colored blocks
+static const int kCutOff			= 56;   //1-100. Higher value = fewer colored blocks
 static const int kCenterWeighted	= 10;	//0-10. Larger number makes colored blocks in the corners and edges less likely
 
-@implementation XPR_IdenticonGrid
+@implementation XPRIdenticonGrid
 
-+ (UIImage*) createIdenticonImageForSize:(CGSize)size type:(XPR_IdenticonType)type backgroundColor:(UIColor*)bgColor shape:(XPR_Shape)shape{
++ (UIImage*) imageWithSize:(CGSize)size type:(XPRIdenticonType)type backgroundColor:(UIColor*)bgColor shape:(XPRShape)shape{
 	UIGraphicsBeginImageContext(size);
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	CGContextSetFillColorWithColor(context, bgColor.CGColor);
@@ -28,29 +28,27 @@ static const int kCenterWeighted	= 10;	//0-10. Larger number makes colored block
 	CGSize boxSize = CGSizeMake(boxWidth, boxheight);
 	CGSize offsetSize = CGSizeMake(offsetX, offsetY);
 	switch (type) {
-		case XPR_IdenticonTypeMirroredGridOneColor:
-		case XPR_IdenticonTypeMirroredGridMultiColor:
-		case XPR_IdenticonTypeMirroredGridMultiColorRows:
-		case XPR_IdenticonTypeMirroredGridMultiColorColumns:
+		case XPRIdenticonTypeMirroredGridOneColor:
+		case XPRIdenticonTypeMirroredGridMultiColor:
+		case XPRIdenticonTypeMirroredGridMultiColorRows:
+		case XPRIdenticonTypeMirroredGridMultiColorColumns:
 			[self drawMirroredGridCenterWeightedColors:size boxSize:boxSize offsetSize:offsetSize type:type shape:shape];
 			break;
-		case XPR_IdenticonTypeGridOneColor:
-		case XPR_IdenticonTypeGridMultiColor:
-		case XPR_IdenticonTypeGridMultiColorRows:
-		case XPR_IdenticonTypeGridMultiColorColumns:
+		case XPRIdenticonTypeGridOneColor:
+		case XPRIdenticonTypeGridMultiColor:
+		case XPRIdenticonTypeGridMultiColorRows:
+		case XPRIdenticonTypeGridMultiColorColumns:
 			[self drawGridCenterWeightedColors:size boxSize:boxSize offsetSize:offsetSize type:type shape:shape];
 			break;
 		default:
 			break;
 	}
-	CGContextSaveGState(context);
-
 	return UIGraphicsGetImageFromCurrentImageContext();
 }
 
 #pragma mark - Drawing Methods
 
-+ (void)drawMirroredGridCenterWeightedColors:(CGSize)imageSize boxSize:(CGSize)boxSize offsetSize:(CGSize)offsetSize type:(XPR_IdenticonType)type shape:(XPR_Shape)shape{
++ (void)drawMirroredGridCenterWeightedColors:(CGSize)imageSize boxSize:(CGSize)boxSize offsetSize:(CGSize)offsetSize type:(XPRIdenticonType)type shape:(XPRShape)shape{
 	NSArray * colorArray;
 	UIColor * color = [UIColor xprRandomColor];
 	colorArray = [self colorArrayForIdenticonType:type];
@@ -61,13 +59,13 @@ static const int kCenterWeighted	= 10;	//0-10. Larger number makes colored block
 			int value = [self weightedValue:[array[j] intValue] row:i column:j isMirrored:YES];
 			if (value > kCutOff) {
 				switch (type) {
-					case XPR_IdenticonTypeMirroredGridMultiColor:
+					case XPRIdenticonTypeMirroredGridMultiColor:
 						color = colorArray[arc4random_uniform((int)colorArray.count)];
 						break;
-					case XPR_IdenticonTypeMirroredGridMultiColorRows:
+					case XPRIdenticonTypeMirroredGridMultiColorRows:
 						color = colorArray[j];
 						break;
-					case XPR_IdenticonTypeMirroredGridMultiColorColumns:
+					case XPRIdenticonTypeMirroredGridMultiColorColumns:
 						color = colorArray[i];
 						break;
 					default:
@@ -79,7 +77,7 @@ static const int kCenterWeighted	= 10;	//0-10. Larger number makes colored block
 
 				UIBezierPath *path;
 				CGContextSetFillColorWithColor(context, color.CGColor);
-				if (shape == XPR_ShapeCircle) {
+				if (shape == XPRShapeCircle) {
 					path = [self drawCircleAtCenterPoint:CGPointMake(nearXPos + boxSize.width/2, yPos + boxSize.height/2) withRadius:boxSize.height/2];
 					[path fill];
 					path = [self drawCircleAtCenterPoint:CGPointMake(farXPos + boxSize.width/2, yPos + boxSize.height/2) withRadius:boxSize.height/2];
@@ -95,7 +93,7 @@ static const int kCenterWeighted	= 10;	//0-10. Larger number makes colored block
 	}
 }
 
-+ (void)drawGridCenterWeightedColors:(CGSize)imageSize boxSize:(CGSize)boxSize offsetSize:(CGSize)offsetSize type:(XPR_IdenticonType)type shape:(XPR_Shape)shape{
++ (void)drawGridCenterWeightedColors:(CGSize)imageSize boxSize:(CGSize)boxSize offsetSize:(CGSize)offsetSize type:(XPRIdenticonType)type shape:(XPRShape)shape{
 	NSArray * colorArray;
 	UIColor * color = [UIColor xprRandomColor];
 	colorArray = [self colorArrayForIdenticonType:type];
@@ -106,13 +104,13 @@ static const int kCenterWeighted	= 10;	//0-10. Larger number makes colored block
 			int value = [self weightedValue:[array[j] intValue] row:i column:j isMirrored:NO];
 			if (value > kCutOff) {
 				switch (type) {
-					case XPR_IdenticonTypeGridMultiColor:
+					case XPRIdenticonTypeGridMultiColor:
 						color = colorArray[arc4random_uniform((int)colorArray.count)];
 						break;
-					case XPR_IdenticonTypeGridMultiColorRows:
+					case XPRIdenticonTypeGridMultiColorRows:
 						color = colorArray[j];
 						break;
-					case XPR_IdenticonTypeGridMultiColorColumns:
+					case XPRIdenticonTypeGridMultiColorColumns:
 						color = colorArray[i];
 						break;
 					default:
@@ -123,7 +121,7 @@ static const int kCenterWeighted	= 10;	//0-10. Larger number makes colored block
 
 				UIBezierPath *path;
 				CGContextSetFillColorWithColor(context, color.CGColor);
-				if (shape == XPR_ShapeCircle) {
+				if (shape == XPRShapeCircle) {
 					path = [self drawCircleAtCenterPoint:CGPointMake(xPos + boxSize.width/2, yPos + boxSize.height/2) withRadius:boxSize.height/2];
 					[path fill];
 				} else {
@@ -158,17 +156,17 @@ static const int kCenterWeighted	= 10;	//0-10. Larger number makes colored block
 
 #pragma mark - Color Methods
 
-+ (NSArray *)colorArrayForIdenticonType:(XPR_IdenticonType)type {
++ (NSArray *)colorArrayForIdenticonType:(XPRIdenticonType)type {
 	NSArray *colorArray;
 	switch (type) {
-		case XPR_IdenticonTypeGridMultiColor:
-		case XPR_IdenticonTypeGridMultiColorColumns:
-		case XPR_IdenticonTypeMirroredGridMultiColor:
-		case XPR_IdenticonTypeMirroredGridMultiColorColumns:
+		case XPRIdenticonTypeGridMultiColor:
+		case XPRIdenticonTypeGridMultiColorColumns:
+		case XPRIdenticonTypeMirroredGridMultiColor:
+		case XPRIdenticonTypeMirroredGridMultiColorColumns:
 			colorArray = [UIColor xprArrayOfRelatedColorsForCount:5];
 			break;
-		case XPR_IdenticonTypeGridMultiColorRows:
-		case XPR_IdenticonTypeMirroredGridMultiColorRows:
+		case XPRIdenticonTypeGridMultiColorRows:
+		case XPRIdenticonTypeMirroredGridMultiColorRows:
 			colorArray = [UIColor xprArrayOfRelatedColorsForCount:kNumRows];
 			break;
 		default:

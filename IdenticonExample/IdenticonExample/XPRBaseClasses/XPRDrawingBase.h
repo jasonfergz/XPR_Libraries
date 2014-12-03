@@ -1,5 +1,5 @@
 //
-//  XPR_DrawingBase.h
+//  XPRDrawingBase.h
 //
 //  Created by Jason Ferguson
 //  Copyright (c) 2014 Jason Ferguson. All rights reserved.
@@ -9,20 +9,20 @@
 #import <UIKit/UIKit.h>
 #import <CoreGraphics/CoreGraphics.h>
 
-typedef NS_ENUM(NSInteger, XPR_Shape) {
-	XPR_ShapeSquare,
-	XPR_ShapeRectangle,
-	XPR_ShapeCircle,
-	XPR_ShapeElipse,
-	XPR_ShapeRoundedRect,
-	XPR_ShapePill,
-	XPR_ShapeTriangleIsosceles,
-	XPR_ShapeTriangleLeftSide,
-	XPR_ShapeTriangleRightSide,
-	XPR_ShapeTearDrop
+typedef NS_ENUM(NSInteger, XPRShape) {
+	XPRShapeSquare,
+	XPRShapeRectangle,
+	XPRShapeCircle,
+	XPRShapeElipse,
+	XPRShapeRoundedRect,
+	XPRShapePill,
+	XPRShapeTriangleIsosceles,
+	XPRShapeTriangleLeftSide,
+	XPRShapeTriangleRightSide,
+	XPRShapeTearDrop
 };
 
-@interface XPR_DrawingBase : NSObject
+@interface XPRDrawingBase : NSObject
 
 //Drawing Helpers
 + (UIBezierPath *) drawRectangleInRect:(CGRect)rect;
@@ -31,7 +31,7 @@ typedef NS_ENUM(NSInteger, XPR_Shape) {
 + (UIBezierPath *) drawCircleAtCenterPoint:(CGPoint)centerPoint withRadius:(CGFloat)radius;
 + (UIBezierPath *) drawSliceOfPie:(CGPoint)centerPoint radius:(CGFloat)radius startAngle:(CGFloat)startAngle endAngle:(CGFloat)endAngle;
 + (UIBezierPath *) drawElipseInRect:(CGRect)rect;
-+ (UIBezierPath *) drawTriangleInRect:(CGRect)rect triangleType:(XPR_Shape)shape;
++ (UIBezierPath *) drawTriangleInRect:(CGRect)rect triangleType:(XPRShape)shape;
 + (UIBezierPath *) drawTearDropInRect:(CGRect)rect;
 
 //Trig Helpers

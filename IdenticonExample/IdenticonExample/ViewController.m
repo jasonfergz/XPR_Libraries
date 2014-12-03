@@ -7,12 +7,13 @@
 //
 
 #import "ViewController.h"
-#import "XPR_IdenticonGrid.h"
-#import "XPR_IdenticonShapes.h"
+#import "XPRIdenticonGrid.h"
+#import "XPRIdenticonShapes.h"
 
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *identiconImageView;
+@property (nonatomic) CGSize imageSize;
 
 @end
 
@@ -20,7 +21,8 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	//self.imageSize = CGSizeMake(self.identiconImageView.frame.size.width, self.identiconImageView.frame.size.height);
+	self.imageSize = CGSizeMake(1024, 1024);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,53 +31,90 @@
 }
 
 - (IBAction)gridOneColorPressed:(id)sender {
-	self.identiconImageView.image = [XPR_IdenticonGrid createIdenticonImageForSize:CGSizeMake(self.identiconImageView.frame.size.width, self.identiconImageView.frame.size.height)
-																type:XPR_IdenticonTypeMirroredGridOneColor
-													 backgroundColor:[UIColor whiteColor]
-															   shape:XPR_ShapeSquare];
+	self.identiconImageView.image = [XPRIdenticonGrid imageWithSize:self.imageSize
+															   type:XPRIdenticonTypeMirroredGridOneColor
+													backgroundColor:[UIColor whiteColor]
+															  shape:XPRShapeSquare];
 
 }
 
 - (IBAction)gridMultiColorPressed:(id)sender {
-	self.identiconImageView.image = [XPR_IdenticonGrid createIdenticonImageForSize:CGSizeMake(self.identiconImageView.frame.size.width, self.identiconImageView.frame.size.height)
-																type:XPR_IdenticonTypeMirroredGridMultiColor
-													 backgroundColor:[UIColor whiteColor]
-															   shape:XPR_ShapeSquare];
+	self.identiconImageView.image = [XPRIdenticonGrid imageWithSize:self.imageSize
+															   type:XPRIdenticonTypeMirroredGridMultiColor
+													backgroundColor:[UIColor whiteColor]
+															  shape:XPRShapeSquare];
 
 }
 
 - (IBAction)gridMultiColoredRowsPressed:(id)sender {
-	self.identiconImageView.image = [XPR_IdenticonGrid createIdenticonImageForSize:CGSizeMake(self.identiconImageView.frame.size.width, self.identiconImageView.frame.size.height)
-																type:XPR_IdenticonTypeMirroredGridMultiColorRows
-													 backgroundColor:[UIColor whiteColor]
-															   shape:XPR_ShapeSquare];
+	self.identiconImageView.image = [XPRIdenticonGrid imageWithSize:self.imageSize
+															   type:XPRIdenticonTypeMirroredGridMultiColorRows
+													backgroundColor:[UIColor whiteColor]
+															  shape:XPRShapeSquare];
 
 }
 
 - (IBAction)gridMultiColorColumnsPressed:(id)sender {
-	self.identiconImageView.image = [XPR_IdenticonGrid createIdenticonImageForSize:CGSizeMake(self.identiconImageView.frame.size.width, self.identiconImageView.frame.size.height)
-																type:XPR_IdenticonTypeMirroredGridMultiColorColumns
-													 backgroundColor:[UIColor whiteColor]
-															   shape:XPR_ShapeSquare];
+	self.identiconImageView.image = [XPRIdenticonGrid imageWithSize:self.imageSize
+															   type:XPRIdenticonTypeMirroredGridMultiColorColumns
+													backgroundColor:[UIColor whiteColor]
+															  shape:XPRShapeSquare];
 
 }
 
 - (IBAction)shapesCirclesPressed:(id)sender {
-	self.identiconImageView.image = [XPR_IdenticonShapes createIdenticonImageForSize:CGSizeMake(self.identiconImageView.frame.size.width, self.identiconImageView.frame.size.height)
-																		backgroundColor:[UIColor whiteColor]
-																				  shape:XPR_ShapeCircle];
-
+	self.identiconImageView.image = [XPRIdenticonShapes imageWithSize:self.imageSize
+													  backgroundColor:[UIColor whiteColor]
+																shape:XPRShapeCircle
+														   shapeCount:7];
 }
 
 - (IBAction)shapesSquaresPressed:(id)sender {
-	self.identiconImageView.image = [XPR_IdenticonShapes createIdenticonImageForSize:CGSizeMake(self.identiconImageView.frame.size.width, self.identiconImageView.frame.size.height)
-																		backgroundColor:[UIColor whiteColor]
-																				  shape:XPR_ShapeRectangle];
-
-
+	self.identiconImageView.image = [XPRIdenticonShapes imageWithSize:self.imageSize
+													  backgroundColor:[UIColor whiteColor]
+																shape:XPRShapeRectangle
+														   shapeCount:7];
 }
 
+- (IBAction)saveImagePressed:(id)sender {
+	[self writeImageToFile];
+}
 
+#pragma mark - Write file
+
+- (void) writeImageToFile {
+	//make a file name to write the data to using the documents directory:
+	int timestamp = [[NSDate date] timeIntervalSince1970];
+	NSString *fileName = [NSString stringWithFormat:@"%@/Identicon-%d.png",
+						  [self documentsDirectory],timestamp];
+
+	NSData *imageData = UIImagePNGRepresentation(self.identiconImageView.image);
+	if ([imageData writeToFile:fileName atomically:NO]) {
+		NSLog(@"Image Saved");
+	} else {
+		NSLog(@"Image Failed To Save");
+	}
+}
+
+#pragma mark - List Files
+
+- (NSArray*)listOfFiles {
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+
+	NSArray *filesArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:documentsDirectory  error:nil];
+
+	NSLog(@"List of files:\n%@", filesArray);
+	return filesArray;
+}
+
+#pragma mark - Documents Directory
+
+- (NSString *)documentsDirectory {
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	return documentsDirectory;
+}
 
 
 

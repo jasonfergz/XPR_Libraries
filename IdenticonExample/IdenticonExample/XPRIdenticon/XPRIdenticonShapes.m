@@ -1,53 +1,49 @@
 //
-//  XPR_IdenticonShapes.m
+//  XPRIdenticonShapes.m
 //
 //  Created by Jason Ferguson
 //  Copyright (c) 2014 Jason Ferguson. All rights reserved.
 //  https://github.com/xpro66
 
-#import "XPR_IdenticonShapes.h"
-#import "NSArray+XPR_Additions.h"
-#import "UIColor+XPR_Additions.h"
+#import "XPRIdenticonShapes.h"
+#import "NSArray+XPRAdditions.h"
+#import "UIColor+XPRAdditions.h"
 
-static const int kShapeCount = 7;
+@implementation XPRIdenticonShapes
 
-@implementation XPR_IdenticonShapes
-
-+ (UIImage*) createIdenticonImageForSize:(CGSize)size backgroundColor:(UIColor*)bgColor shape:(XPR_Shape)shape{
++ (UIImage*) imageWithSize:(CGSize)size backgroundColor:(UIColor*)bgColor shape:(XPRShape)shape shapeCount:(int)shapeCount {
 	UIGraphicsBeginImageContext(size);
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	CGContextSetFillColorWithColor(context, bgColor.CGColor);
 	CGContextFillRect(context, CGRectMake(0, 0, size.width, size.height));
 	switch (shape) {
-		case XPR_ShapeRectangle:
-			[self drawColoredSquaresInFrame:size];
+		case XPRShapeRectangle:
+			[self drawColoredSquaresInFrame:size shapeCount:shapeCount];
 			break;
-		case XPR_ShapeCircle:
-			[self drawColoredCirclesInFrame:size];
+		case XPRShapeCircle:
+			[self drawColoredCirclesInFrame:size shapeCount:shapeCount];
 			break;
 		default:
 			break;
 	}
-	CGContextSaveGState(context);
-
 	return UIGraphicsGetImageFromCurrentImageContext();
 }
 
 #pragma mark - Drawing Code
 
-+ (void)drawColoredSquaresInFrame:(CGSize)size {
-	NSArray * array = [NSArray xprArrayOfSortedValuesDescScaledCount:kShapeCount maxValue:[self getshortSide:size]];
-	NSArray * colorArray = [UIColor xprArrayOfRelatedColorsForCount:kShapeCount];
-	for (int i = 0; i < kShapeCount; i ++) {
++ (void)drawColoredSquaresInFrame:(CGSize)size shapeCount:(int)shapeCount {
+	NSArray * array = [NSArray xprArrayOfSortedValuesDescScaledCount:shapeCount maxValue:[self getshortSide:size]];
+	NSArray * colorArray = [UIColor xprArrayOfRelatedColorsForCount:shapeCount];
+	for (int i = 0; i < shapeCount; i ++) {
 
 		[self drawSquareFullyInFrame:size withSideLength:[array[i] intValue] color:colorArray[i]];
 	}
 }
 
-+ (void)drawColoredCirclesInFrame:(CGSize)size {
-	NSArray * array = [NSArray xprArrayOfSortedValuesDescScaledCount:kShapeCount maxValue:[self getshortSide:size]];
-	NSArray * colorArray = [UIColor xprArrayOfRelatedColorsForCount:kShapeCount];
-	for (int i = 0; i < kShapeCount; i ++) {
++ (void)drawColoredCirclesInFrame:(CGSize)size shapeCount:(int)shapeCount {
+	NSArray * array = [NSArray xprArrayOfSortedValuesDescScaledCount:shapeCount maxValue:[self getshortSide:size]];
+	NSArray * colorArray = [UIColor xprArrayOfRelatedColorsForCount:shapeCount];
+	for (int i = 0; i < shapeCount; i ++) {
 
 		[self drawCircleFullyInFrame:size radius:[array[i] intValue] color:colorArray[i]];
 	}

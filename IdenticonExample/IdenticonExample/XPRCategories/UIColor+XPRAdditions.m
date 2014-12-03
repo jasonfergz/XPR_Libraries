@@ -1,19 +1,19 @@
 //
-//  UIColor+XPR_Additions.m
+//  UIColor+XPRAdditions.m
 //  IdenticonTest
 //
 //  Created by Jason Ferguson on 11/27/14.
 //  Copyright (c) 2014 Jason Ferguson. All rights reserved.
 //
 
-#import "UIColor+XPR_Additions.h"
+#import "UIColor+XPRAdditions.h"
 
-@implementation UIColor (XPR_Additions)
+@implementation UIColor (XPRAdditions)
 
 + (UIColor*)xprRandomColor {
-	CGFloat hue = ( arc4random() % 256 / 256.0 );
-	CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;
-	CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;
+	CGFloat hue = ( arc4random() % (int)kNumColors / kNumColors );
+	CGFloat saturation = ( arc4random() % 128 / kNumColors ) + 0.5;
+	CGFloat brightness = ( arc4random() % 128 / kNumColors ) + 0.5;
 
 	UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
 	return color;
@@ -47,14 +47,14 @@
 	}
 
 	NSMutableArray * colorArray = @[].mutableCopy;
-	int startingHueValue = ( arc4random() % 256);
-	[colorArray addObject:[self xprColorForHue:startingHueValue/256.0]];
+	int startingHueValue = ( arc4random() % (int)kNumColors);
+	[colorArray addObject:[self xprColorForHue:startingHueValue/kNumColors]];
 	for (int i = 1; i < count; i++) {
 		startingHueValue -= offset;
 		if (startingHueValue < 0) {
-			startingHueValue += 256;
+			startingHueValue += kNumColors;
 		}
-		[colorArray addObject:[self xprColorForHue:startingHueValue/256.0]];
+		[colorArray addObject:[self xprColorForHue:startingHueValue/kNumColors]];
 	}
 	return colorArray.copy;
 }

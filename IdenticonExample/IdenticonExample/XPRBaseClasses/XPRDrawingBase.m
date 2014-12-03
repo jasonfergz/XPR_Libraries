@@ -1,13 +1,13 @@
 //
-//  XPR_DrawingBase.m
+//  XPRDrawingBase.m
 //
 //  Created by Jason Ferguson
 //  Copyright (c) 2014 Jason Ferguson. All rights reserved.
 //  https://github.com/xpro66
 
-#import "XPR_DrawingBase.h"
+#import "XPRDrawingBase.h"
 
-@implementation XPR_DrawingBase
+@implementation XPRDrawingBase
 
 #pragma mark - Drawing Helpers
 
@@ -53,16 +53,16 @@
 	return elipse;
 }
 
-+ (UIBezierPath *) drawTriangleInRect:(CGRect)rect triangleType:(XPR_Shape)shape {
++ (UIBezierPath *) drawTriangleInRect:(CGRect)rect triangleType:(XPRShape)shape {
 	CGPoint point1 = CGPointMake(rect.origin.x, rect.origin.y + rect.size.height);
 	CGPoint point2 = CGPointMake(rect.origin.x + rect.size.width, rect.origin.y + rect.size.height);
 	CGPoint point3 = CGPointMake(rect.origin.x + rect.size.width/2, rect.origin.y);
 
 	switch (shape) {
-		case XPR_ShapeTriangleLeftSide:
+		case XPRShapeTriangleLeftSide:
 			point3 = CGPointMake(rect.origin.x, rect.origin.y);
 			break;
-		case XPR_ShapeTriangleRightSide:
+		case XPRShapeTriangleRightSide:
 			point3 = CGPointMake(rect.origin.x + rect.size.width, rect.origin.y);
 			break;
 		default:

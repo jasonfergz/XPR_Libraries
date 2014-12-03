@@ -1,13 +1,13 @@
 //
-//  NSArray+XPR_Additions.m
+//  NSArray+XPRAdditions.m
 //
 //  Created by Jason Ferguson
 //  Copyright (c) 2014 Jason Ferguson. All rights reserved.
 //  https://github.com/xpro66
 
-#import "NSArray+XPR_Additions.h"
+#import "NSArray+XPRAdditions.h"
 
-@implementation NSArray (XPR_Additions)
+@implementation NSArray (XPRAdditions)
 
 + (NSArray*) xprRandomArrayForCount:(int)count {
 	NSMutableArray * array = @[].mutableCopy;

@@ -14,11 +14,11 @@
 		9618779B1A2BFD82002E7C12 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9618779A1A2BFD82002E7C12 /* Images.xcassets */; };
 		9618779E1A2BFD82002E7C12 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9618779C1A2BFD82002E7C12 /* LaunchScreen.xib */; };
 		961877AA1A2BFD82002E7C12 /* IdenticonExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 961877A91A2BFD82002E7C12 /* IdenticonExampleTests.m */; };
-		961877C01A2BFDE5002E7C12 /* XPR_DrawingBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 961877B51A2BFDE5002E7C12 /* XPR_DrawingBase.m */; };
-		961877C11A2BFDE5002E7C12 /* NSArray+XPR_Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 961877B81A2BFDE5002E7C12 /* NSArray+XPR_Additions.m */; };
-		961877C21A2BFDE5002E7C12 /* UIColor+XPR_Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 961877BA1A2BFDE5002E7C12 /* UIColor+XPR_Additions.m */; };
-		961877C31A2BFDE5002E7C12 /* XPR_IdenticonGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 961877BD1A2BFDE5002E7C12 /* XPR_IdenticonGrid.m */; };
-		961877C41A2BFDE5002E7C12 /* XPR_IdenticonShapes.m in Sources */ = {isa = PBXBuildFile; fileRef = 961877BF1A2BFDE5002E7C12 /* XPR_IdenticonShapes.m */; };
+		96FEFD091A2F774600D38214 /* XPRDrawingBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FEFCFE1A2F774600D38214 /* XPRDrawingBase.m */; };
+		96FEFD0A1A2F774600D38214 /* NSArray+XPRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FEFD011A2F774600D38214 /* NSArray+XPRAdditions.m */; };
+		96FEFD0B1A2F774600D38214 /* UIColor+XPRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FEFD031A2F774600D38214 /* UIColor+XPRAdditions.m */; };
+		96FEFD0C1A2F774600D38214 /* XPRIdenticonGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FEFD061A2F774600D38214 /* XPRIdenticonGrid.m */; };
+		96FEFD0D1A2F774600D38214 /* XPRIdenticonShapes.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FEFD081A2F774600D38214 /* XPRIdenticonShapes.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,16 +45,16 @@
 		961877A31A2BFD82002E7C12 /* IdenticonExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IdenticonExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		961877A81A2BFD82002E7C12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		961877A91A2BFD82002E7C12 /* IdenticonExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IdenticonExampleTests.m; sourceTree = "<group>"; };
-		961877B41A2BFDE5002E7C12 /* XPR_DrawingBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPR_DrawingBase.h; sourceTree = "<group>"; };
-		961877B51A2BFDE5002E7C12 /* XPR_DrawingBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPR_DrawingBase.m; sourceTree = "<group>"; };
-		961877B71A2BFDE5002E7C12 /* NSArray+XPR_Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+XPR_Additions.h"; sourceTree = "<group>"; };
-		961877B81A2BFDE5002E7C12 /* NSArray+XPR_Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+XPR_Additions.m"; sourceTree = "<group>"; };
-		961877B91A2BFDE5002E7C12 /* UIColor+XPR_Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XPR_Additions.h"; sourceTree = "<group>"; };
-		961877BA1A2BFDE5002E7C12 /* UIColor+XPR_Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XPR_Additions.m"; sourceTree = "<group>"; };
-		961877BC1A2BFDE5002E7C12 /* XPR_IdenticonGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPR_IdenticonGrid.h; sourceTree = "<group>"; };
-		961877BD1A2BFDE5002E7C12 /* XPR_IdenticonGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPR_IdenticonGrid.m; sourceTree = "<group>"; };
-		961877BE1A2BFDE5002E7C12 /* XPR_IdenticonShapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPR_IdenticonShapes.h; sourceTree = "<group>"; };
-		961877BF1A2BFDE5002E7C12 /* XPR_IdenticonShapes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPR_IdenticonShapes.m; sourceTree = "<group>"; };
+		96FEFCFD1A2F774600D38214 /* XPRDrawingBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPRDrawingBase.h; sourceTree = "<group>"; };
+		96FEFCFE1A2F774600D38214 /* XPRDrawingBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPRDrawingBase.m; sourceTree = "<group>"; };
+		96FEFD001A2F774600D38214 /* NSArray+XPRAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+XPRAdditions.h"; sourceTree = "<group>"; };
+		96FEFD011A2F774600D38214 /* NSArray+XPRAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+XPRAdditions.m"; sourceTree = "<group>"; };
+		96FEFD021A2F774600D38214 /* UIColor+XPRAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XPRAdditions.h"; sourceTree = "<group>"; };
+		96FEFD031A2F774600D38214 /* UIColor+XPRAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XPRAdditions.m"; sourceTree = "<group>"; };
+		96FEFD051A2F774600D38214 /* XPRIdenticonGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPRIdenticonGrid.h; sourceTree = "<group>"; };
+		96FEFD061A2F774600D38214 /* XPRIdenticonGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPRIdenticonGrid.m; sourceTree = "<group>"; };
+		96FEFD071A2F774600D38214 /* XPRIdenticonShapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPRIdenticonShapes.h; sourceTree = "<group>"; };
+		96FEFD081A2F774600D38214 /* XPRIdenticonShapes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPRIdenticonShapes.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,9 +100,9 @@
 				961877921A2BFD82002E7C12 /* AppDelegate.m */,
 				961877941A2BFD82002E7C12 /* ViewController.h */,
 				961877951A2BFD82002E7C12 /* ViewController.m */,
-				961877B31A2BFDE5002E7C12 /* XPR_BaseClasses */,
-				961877B61A2BFDE5002E7C12 /* XPR_Categories */,
-				961877BB1A2BFDE5002E7C12 /* XPR_Identicon */,
+				96FEFCFC1A2F774600D38214 /* XPRBaseClasses */,
+				96FEFCFF1A2F774600D38214 /* XPRCategories */,
+				96FEFD041A2F774600D38214 /* XPRIdenticon */,
 				961877971A2BFD82002E7C12 /* Main.storyboard */,
 				9618779A1A2BFD82002E7C12 /* Images.xcassets */,
 				9618779C1A2BFD82002E7C12 /* LaunchScreen.xib */,
@@ -137,35 +137,35 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		961877B31A2BFDE5002E7C12 /* XPR_BaseClasses */ = {
+		96FEFCFC1A2F774600D38214 /* XPRBaseClasses */ = {
 			isa = PBXGroup;
 			children = (
-				961877B41A2BFDE5002E7C12 /* XPR_DrawingBase.h */,
-				961877B51A2BFDE5002E7C12 /* XPR_DrawingBase.m */,
+				96FEFCFD1A2F774600D38214 /* XPRDrawingBase.h */,
+				96FEFCFE1A2F774600D38214 /* XPRDrawingBase.m */,
 			);
-			path = XPR_BaseClasses;
+			path = XPRBaseClasses;
 			sourceTree = "<group>";
 		};
-		961877B61A2BFDE5002E7C12 /* XPR_Categories */ = {
+		96FEFCFF1A2F774600D38214 /* XPRCategories */ = {
 			isa = PBXGroup;
 			children = (
-				961877B71A2BFDE5002E7C12 /* NSArray+XPR_Additions.h */,
-				961877B81A2BFDE5002E7C12 /* NSArray+XPR_Additions.m */,
-				961877B91A2BFDE5002E7C12 /* UIColor+XPR_Additions.h */,
-				961877BA1A2BFDE5002E7C12 /* UIColor+XPR_Additions.m */,
+				96FEFD001A2F774600D38214 /* NSArray+XPRAdditions.h */,
+				96FEFD011A2F774600D38214 /* NSArray+XPRAdditions.m */,
+				96FEFD021A2F774600D38214 /* UIColor+XPRAdditions.h */,
+				96FEFD031A2F774600D38214 /* UIColor+XPRAdditions.m */,
 			);
-			path = XPR_Categories;
+			path = XPRCategories;
 			sourceTree = "<group>";
 		};
-		961877BB1A2BFDE5002E7C12 /* XPR_Identicon */ = {
+		96FEFD041A2F774600D38214 /* XPRIdenticon */ = {
 			isa = PBXGroup;
 			children = (
-				961877BC1A2BFDE5002E7C12 /* XPR_IdenticonGrid.h */,
-				961877BD1A2BFDE5002E7C12 /* XPR_IdenticonGrid.m */,
-				961877BE1A2BFDE5002E7C12 /* XPR_IdenticonShapes.h */,
-				961877BF1A2BFDE5002E7C12 /* XPR_IdenticonShapes.m */,
+				96FEFD051A2F774600D38214 /* XPRIdenticonGrid.h */,
+				96FEFD061A2F774600D38214 /* XPRIdenticonGrid.m */,
+				96FEFD071A2F774600D38214 /* XPRIdenticonShapes.h */,
+				96FEFD081A2F774600D38214 /* XPRIdenticonShapes.m */,
 			);
-			path = XPR_Identicon;
+			path = XPRIdenticon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,13 +268,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				961877C31A2BFDE5002E7C12 /* XPR_IdenticonGrid.m in Sources */,
-				961877C21A2BFDE5002E7C12 /* UIColor+XPR_Additions.m in Sources */,
-				961877C41A2BFDE5002E7C12 /* XPR_IdenticonShapes.m in Sources */,
-				961877C01A2BFDE5002E7C12 /* XPR_DrawingBase.m in Sources */,
+				96FEFD0B1A2F774600D38214 /* UIColor+XPRAdditions.m in Sources */,
+				96FEFD091A2F774600D38214 /* XPRDrawingBase.m in Sources */,
+				96FEFD0D1A2F774600D38214 /* XPRIdenticonShapes.m in Sources */,
+				96FEFD0C1A2F774600D38214 /* XPRIdenticonGrid.m in Sources */,
 				961877961A2BFD82002E7C12 /* ViewController.m in Sources */,
 				961877931A2BFD82002E7C12 /* AppDelegate.m in Sources */,
-				961877C11A2BFDE5002E7C12 /* NSArray+XPR_Additions.m in Sources */,
+				96FEFD0A1A2F774600D38214 /* NSArray+XPRAdditions.m in Sources */,
 				961877901A2BFD82002E7C12 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

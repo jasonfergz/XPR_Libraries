@@ -1,5 +1,5 @@
 //
-//  NSArray+XPR_Additions.h
+//  NSArray+XPRAdditions.h
 //
 //  Created by Jason Ferguson
 //  Copyright (c) 2014 Jason Ferguson. All rights reserved.
@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSArray (XPR_Additions)
+@interface NSArray (XPRAdditions)
 
 + (NSArray*) xprRandomArrayForCount:(int)count;
 - (NSArray*) xprSortArrayOfNSNumbers;
