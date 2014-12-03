@@ -21,8 +21,8 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	//self.imageSize = CGSizeMake(self.identiconImageView.frame.size.width, self.identiconImageView.frame.size.height);
-	self.imageSize = CGSizeMake(1024, 1024);
+	self.imageSize = self.identiconImageView.frame.size;
+//	self.imageSize = CGSizeMake(1024, 1024);
 }
 
 - (void)didReceiveMemoryWarning {
